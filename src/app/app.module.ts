@@ -14,12 +14,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { DishdetailComponent } from './dishdetail/dishdetail.component'; // Task 1
 import { DishService } from './services/dish.service';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    DishdetailComponent // Task 1
+    DishdetailComponent,
+    HeaderComponent,
+    FooterComponent // Task 1
   ],
   imports: [
     BrowserModule,
