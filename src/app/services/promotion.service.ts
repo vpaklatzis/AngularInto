@@ -20,4 +20,5 @@ export class PromotionService {
   getFeaturedPromotion(): Promotion {
     return PROMOTIONS.filter((promo) => promo.featured)[0];
   }
+  
 }
