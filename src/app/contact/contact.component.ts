@@ -74,7 +74,7 @@ export class ContactComponent implements OnInit {
       email: '',
       agree: false,
       contacttype: '',
-      mesaage: ''
+      message: ''
     });
     this.feedbackFormDirective.resetform();
   }
