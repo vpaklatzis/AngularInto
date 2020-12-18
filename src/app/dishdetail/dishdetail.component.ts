@@ -5,7 +5,7 @@ import { Dish } from '../shared/dish';
 import { DishService } from '../services/dish.service';
 import { switchMap } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Feedback } from '../shared/feedback';
+import { Comment } from '../shared/comment';
 
 @Component({
   selector: 'app-dishdetail',
@@ -19,21 +19,23 @@ export class DishdetailComponent implements OnInit {
   prev: string;
   next: string;
 
-  feedbackForm: FormGroup;
-  feedback: Feedback;
-  @ViewChild('fform') feedbackFormDirective;
+  autoTicks: boolean;
+  disabled: boolean;
+  invert: boolean;
+  max: number;
+  min: number;
+  showTicks: boolean;
+  step: number;
+  thumbLabel: boolean;
+  value: number;
+  vertical: boolean;
+  tickInterval: number;
 
-  autoTicks = false;
-  disabled = false;
-  invert = false;
-  max = 5;
-  min = 1;
-  showTicks = true;
-  step = 1;
-  thumbLabel = true;
-  value = 5;
-  vertical = false;
-  tickInterval = 1;
+  commentForm: FormGroup;
+  comment: Comment;
+  @ViewChild('fform') commentFormDirective;
+
+  
 
   getSliderTickInterval(): number | 'auto' {
     if (this.showTicks) {
@@ -59,6 +61,17 @@ export class DishdetailComponent implements OnInit {
   }
 
   constructor(private dishService: DishService, private route: ActivatedRoute, private location: Location, private fb: FormBuilder) {
+    this.autoTicks = false;
+    this.disabled = false;
+    this.invert = false;
+    this.max = 5;
+    this.min = 1;
+    this.showTicks = true;
+    this.step = 1;
+    this.thumbLabel = true;
+    this.value = 5;
+    this.vertical = false;
+    this.tickInterval = 1;
     this.createForm();
    }
 
@@ -70,25 +83,31 @@ export class DishdetailComponent implements OnInit {
   }
 
   createForm() {
-    this.feedbackForm = this.fb.group({
+    this.commentForm = this.fb.group({
       author: ['', [Validators.required, Validators.minLength(2)]],
-      rating: 5,
+      rating: this.value,
       comment: ['', [Validators.required]]
     });
-
-    this.feedbackForm.valueChanges.subscribe(data => this.onValueChanged(data));
-
+    this.commentForm.valueChanges.subscribe(data => this.onValueChanged(data));
     this.onValueChanged(); //reset form validation messages
   }
 
   onSubmit() {
-    this.feedback = this.feedbackForm.value;
-    this.feedbackForm.reset({
+    this.comment = this.commentForm.value;
+    var d = new Date();
+    this.comment.date = d.toISOString();
+    this.dish.comments.push(this.comment);
+    console.log(this.value);
+    this.commentForm.reset({
       author: '',
-      rating: 5,
+      rating: this.value, 
       comment: ''
     });
-    this.feedbackFormDirective.resetForm();
+    this.commentFormDirective.resetForm();
+    console.log(this.value);
+    this.value = 5;
+    console.log(this.value);
+
   }
 
   setPrevNext(dishId: string) {
@@ -102,9 +121,9 @@ export class DishdetailComponent implements OnInit {
   }
 
   onValueChanged(data?: any) {
-    if (!this.feedbackForm) { return; }
+    if (!this.commentForm) { return; }
 
-    const form = this.feedbackForm;
+    const form = this.commentForm;
 
     for (const field in this.formErrors) {
       if (this.formErrors.hasOwnProperty(field)) {

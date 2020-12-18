@@ -43,8 +43,15 @@
                     <span> -- {{comment.author}} {{comment.date | date}} </span>
                 </p>
             </mat-list-item>
+            <mat-list-item *ngIf="commentForm.valid">
+                <h4 matLine> {{commentForm.value.comment}}</h4>
+                <p matLine> {{commentForm.value.rating}} Stars </p>
+                <p matLine>
+                    <span> -- {{commentForm.value.author}} </span>
+                </p> 
+            </mat-list-item>
         </mat-list>
-        <form novalidate [formGroup]="feedbackForm" #fform="ngForm" class="form-size" (ngSubmit)="onSubmit()" class="form-size">
+        <form novalidate [formGroup]="commentForm" #fform="ngForm" class="form-size" (ngSubmit)="onSubmit()" class="form-size">
             <p> 
                 <mat-form-field class="full-width">
                     <input matInput formControlName="author" placeholder="Name" type="text">
@@ -74,7 +81,7 @@
                     </mat-error>
                 </mat-form-field>
             </p>   
-            <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid">Submit</button>    
+            <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="commentForm.invalid">Submit</button>    
         </form>   
     </div>
 
