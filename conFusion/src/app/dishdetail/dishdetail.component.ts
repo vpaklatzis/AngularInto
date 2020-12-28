@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Dish } from '../shared/dish';
@@ -35,7 +35,7 @@ export class DishdetailComponent implements OnInit {
   comment: Comment;
   @ViewChild('fform') commentFormDirective;
 
-  
+
 
   getSliderTickInterval(): number | 'auto' {
     if (this.showTicks) {
@@ -60,7 +60,7 @@ export class DishdetailComponent implements OnInit {
     }
   }
 
-  constructor(private dishService: DishService, private route: ActivatedRoute, private location: Location, private fb: FormBuilder) {
+  constructor(private dishService: DishService, private route: ActivatedRoute, private location: Location, private fb: FormBuilder, @Inject('BaseURL') public BaseURL) {
     this.autoTicks = false;
     this.disabled = false;
     this.invert = false;
@@ -100,7 +100,7 @@ export class DishdetailComponent implements OnInit {
     console.log(this.value);
     this.commentForm.reset({
       author: '',
-      rating: this.value, 
+      rating: this.value,
       comment: ''
     });
     this.commentFormDirective.resetForm();

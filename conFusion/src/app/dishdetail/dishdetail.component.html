@@ -4,7 +4,7 @@
     fxLayout.sm="column"
     fxLayout.xs="column"
     fxLayoutAlign.gt-md="space-around center"
-    fxLayoutGap="10px" 
+    fxLayoutGap="10px"
     fxLayoutGap.xs="0">
     <!-- Task 2 -->
     <div fxFlex="40" *ngIf="dish">
@@ -14,7 +14,7 @@
                     <h3>{{dish.name | uppercase}}</h3>
                 </mat-card-title>
             </mat-card-header>
-            <img mat-card-image src={{dish.image}} alt={{dish.name}}>
+            <img mat-card-image src="{{BaseURL + dish.image}}" alt={{dish.name}}>
             <mat-card-content>
                 <p>{{dish.description}}</p>
             </mat-card-content>
@@ -48,11 +48,11 @@
                 <p matLine> {{commentForm.value.rating}} Stars </p>
                 <p matLine>
                     <span> -- {{commentForm.value.author}} </span>
-                </p> 
+                </p>
             </mat-list-item>
         </mat-list>
         <form novalidate [formGroup]="commentForm" #fform="ngForm" class="form-size" (ngSubmit)="onSubmit()" class="form-size">
-            <p> 
+            <p>
                 <mat-form-field class="full-width">
                     <input matInput formControlName="author" placeholder="Name" type="text">
                     <mat-error *ngIf="formErrors.author">
@@ -80,9 +80,9 @@
                         {{ formErrors.comment }}
                     </mat-error>
                 </mat-form-field>
-            </p>   
-            <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="commentForm.invalid">Submit</button>    
-        </form>   
+            </p>
+            <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="commentForm.invalid">Submit</button>
+        </form>
     </div>
 
     <div fxFlex [hidden]="dish">
