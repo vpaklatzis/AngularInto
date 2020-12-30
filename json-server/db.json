@@ -39,6 +39,12 @@
           "comment": "It's your birthday, we're gonna party!",
           "author": "25 Cent",
           "date": "2011-12-02T17:57:28.556094Z"
+        },
+        {
+          "author": "hhh",
+          "rating": 5,
+          "comment": "hhh",
+          "date": "2020-12-29T14:57:31.708Z"
         }
       ]
     },
@@ -206,7 +212,7 @@
       "designation": "Chief Taste Officer",
       "featured": false,
       "abbr": "CTO",
-      "description": "Blessed with the most discerning gustatory sense, Agumbe, our CFO, personally ensures that every dish that we serve meets his exacting tastes. Our chefs dread the tongue lashing that ensues if their dish does not meet his exacting standards. He lives by his motto, You click only if you survive my lick."
+      "description": "Blessed with the most discerning gustatory sense, Agumbe, our CTO, personally ensures that every dish that we serve meets his exacting tastes. Our chefs dread the tongue lashing that ensues if their dish does not meet his exacting standards. He lives by his motto, You click only if you survive my lick."
     },
     {
       "id": "3",
