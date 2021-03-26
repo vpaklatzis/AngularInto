@@ -224,5 +224,36 @@
       "description": "Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. He says, Put together the cuisines from the two craziest cultures, and you get a winning hit! Amma Mia!"
     }
   ],
-  "feedback": []
+  "feedback": [
+    {
+      "firstname": "gg",
+      "lastname": "gg",
+      "telnum": "05",
+      "email": "calisthenicsmovement001@gmail.com",
+      "agree": true,
+      "contacttype": "Email",
+      "message": "ggg",
+      "id": 1
+    },
+    {
+      "firstname": "Βαγγέλης",
+      "lastname": "Πακλατζής",
+      "telnum": "05",
+      "email": "calisthenicsmovement001@gmail.com",
+      "agree": true,
+      "contacttype": "Email",
+      "message": "ggg",
+      "id": 2
+    },
+    {
+      "firstname": "rrr",
+      "lastname": "rrr",
+      "telnum": "06",
+      "email": "calisthenicsmovement001@gmail.com",
+      "agree": false,
+      "contacttype": "None",
+      "message": "rrr",
+      "id": 5
+    }
+  ]
 }
